@@ -1,6 +1,9 @@
 # casaLeiloes
 Atividade 1 UC-11 Senac
 
+![LEILAO](https://github.com/ThiagodeSaFreitas/casaLeiloes/assets/123006438/eb78175c-2796-401e-a809-8697d18cf4c3)
+
+
  Casa de Leilões
 
 Bem-vindo ao projeto da Casa de Leilões! Este sistema foi desenvolvido utilizando NetBeans, Java e MySQL, proporcionando uma plataforma eficiente para realizar leilões de produtos. Com funcionalidades completas de CRUD (Create, Read, Update, Delete), o sistema permite o cadastro, visualização, edição e exclusão de produtos, facilitando a gestão do leilão.
