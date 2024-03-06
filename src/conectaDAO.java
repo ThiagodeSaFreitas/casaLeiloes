@@ -22,12 +22,25 @@ public class conectaDAO {
         
         try {
         
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/uc11?user=root&password=");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/bd_uc11?useSSL=false", "root", "tll051227");
+            System.out.println("conectado");
             
         } catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro ConectaDAO" + erro.getMessage());
         }
         return conn;
+    }
+    
+    public void fecharConexao(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+                System.out.println("Conexão fechada");
+            } catch (SQLException e) {
+                // Imprimir o rastreamento de pilha em caso de erro no fechamento da conexão
+                e.printStackTrace();
+            }
+        }
     }
     
 }
