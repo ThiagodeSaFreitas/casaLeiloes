@@ -81,7 +81,9 @@ public class ProdutosDAO {
                 listagem.add(p);
             }
             
-            
+            prep.close();
+            conn.close();
+            res.close();
             
             
                 }catch (SQLException e){
@@ -91,6 +93,34 @@ public class ProdutosDAO {
         
         return listagem;
     }
+    
+     public void venderProduto(int id) {
+    conn = new conectaDAO().connectDB();
+
+    if (conn != null) {
+        try {
+            String sql = "UPDATE produtos SET status = 'vendido' WHERE id = ?";
+            prep = conn.prepareStatement(sql);
+            prep.setInt(1, id);
+
+            
+            int rowsAffected = prep.executeUpdate();
+
+            prep.close();
+            conn.close();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Produto vendido com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível encontrar o produto com o ID especificado.");
+            }
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao vender o produto: " + erro.getMessage());
+        }
+    }
+}
+    
     
     
     
